@@ -13,7 +13,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/logos/logo.png"
+            src="/t-siam logo.png"
             width={60}
             height={60}
             alt="T-SIAM Logo"
