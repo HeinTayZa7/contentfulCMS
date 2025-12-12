@@ -2,8 +2,13 @@ import { getPage } from "@/lib/contentful";
 import { Users, Newspaper, File, Book } from "lucide-react";
 export const revalidate = 60;
 
-export default async function ServicesSection() {
-  const data = await getPage("About Us");
+export default async function ServicesSection({
+  params,
+}: {
+  params: { locale: string };
+}) {
+  const { locale } = await params;
+  const data = await getPage("About Us", locale);
 
   if (!data || !data.sections) {
     return <div>No Services Page found.</div>;
@@ -42,8 +47,7 @@ export default async function ServicesSection() {
       <section className="w-full py-16 bg-white">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-6">
           {cardData.map((card: any, index: number) => {
-            const { title, description, points, icon, detail, lists } =
-              card.fields;
+            const { title, description, icon, detail, lists } = card.fields;
 
             return (
               <div

@@ -12,12 +12,15 @@ export type RichTextDoc = {
   content: any[];
 };
 
-export const getPage = async ($title: string) => {
+export const getPage = async (title: string, locale: "en-US" | "th") => {
   const res = await client.getEntries({
     content_type: "page",
     include: 2,
+    locale,
   });
 
-  const page = res.items.find((item: any) => item.fields.title === $title);
+  console.log(res.items);
+
+  const page = res.items.find((item: any) => item.fields.title === title);
   return page ? page.fields : null;
 };

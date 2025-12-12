@@ -1,10 +1,10 @@
-import HeroBanner from "./components/HeroBanner";
-import AboutSection from "./components/AboutSection";
-import PhotoGallery from "./components/PhotoGallery";
-import ProcressFlowSection from "./components/ProcressFlowSection";
-import ServicesSection from "./components/ServiceSection";
-import PartnersSection from "./components/PartnersSection";
-import { client, getPage } from "../lib/contentful";
+import HeroBanner from "../components/HeroBanner";
+import AboutSection from "../components/AboutSection";
+import PhotoGallery from "../components/PhotoGallery";
+import ProcressFlowSection from "../components/ProcressFlowSection";
+import ServicesSection from "../components/ServiceSection";
+import PartnersSection from "../components/PartnersSection";
+import { getPage } from "@/lib/contentful";
 
 type HeroBannerFields = {
   title: string | { nodeType: string; content?: any[] };
@@ -60,8 +60,9 @@ function extractSection(page: any, entryTitle: string) {
   return section ? section.fields : null;
 }
 
-export default async function Home() {
-  const page = await getPage("Home");
+export default async function Home({ params }: { params: { locale: string } }) {
+  const { locale } = await params;
+  const page = await getPage("Home", locale);
 
   if (!page) {
     return <main className="text-center py-20">No Home page found.</main>;

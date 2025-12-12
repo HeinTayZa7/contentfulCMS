@@ -3,8 +3,13 @@ import Image from "next/image";
 import { getPage } from "@/lib/contentful";
 import { User, File, Users, Handshake } from "lucide-react";
 
-export default async function ServicesSection() {
-  const data = await getPage("Services");
+export default async function ServicesSection({
+  params,
+}: {
+  params: { locale: string };
+}) {
+  const { locale } = await params;
+  const data = await getPage("Services", locale);
 
   if (!data || !data.sections) {
     return <div>No Services Page found.</div>;

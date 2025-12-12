@@ -2,7 +2,6 @@ export default function Footer() {
   return (
     <footer className="bg-blue-900 text-white px-4 sm:px-16 py-6 sm:py-12">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 md:gap-0">
-        {/* Left side - Logo + Title + Follow Us */}
         <div className="flex items-center gap-3 sm:gap-4">
           <img
             src="/t-siam logo.png"
@@ -14,7 +13,6 @@ export default function Footer() {
               T-SIAM ARCH CO.LTD
             </h2>
 
-            {/* Follow Us */}
             <div className="flex items-center gap-2 text-xs sm:text-sm md:text-base">
               <img
                 src="/facebook.png"
@@ -31,14 +29,11 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Right side - Contact Us */}
         <div className="text-right mt-4 md:mt-0">
           <h3 className="text-sm sm:text-lg md:text-xl font-bold mb-2 sm:mb-4 w-full">
-            {/* FIXED: smaller on mobile */}
             Contact Us
           </h3>
 
-          {/* Phone */}
           <p className="flex justify-end items-center gap-1 sm:gap-2 mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">
             <span>+66 1234 5678</span>
             <img
@@ -48,7 +43,6 @@ export default function Footer() {
             />
           </p>
 
-          {/* Email */}
           <p className="flex justify-end items-center gap-1 sm:gap-2 mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">
             <span>info@tsiamarch.com</span>
             <img
@@ -58,7 +52,6 @@ export default function Footer() {
             />
           </p>
 
-          {/* Location */}
           <p className="flex justify-end items-center gap-1 sm:gap-2 text-xs sm:text-sm md:text-base">
             <span>123 Main Street, Bangkok</span>
             <img
