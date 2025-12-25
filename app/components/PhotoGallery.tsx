@@ -1,30 +1,46 @@
-interface Props {
-  title: string;
-  images: string[];
-}
+type PhotoGalleryProps = {
+  title?: string;
+  images?: Array<{
+    fields?: {
+      title?: string;
+      file?: {
+        url?: string;
+      };
+    };
+  }>;
+};
 
-export default function PhotoGallery({ title, images }: Props) {
+export default function PhotoGallery({
+  title,
+  images = [],
+}: PhotoGalleryProps) {
   return (
-    <section className="py-10 bg-slate-100">
-      <div className="max-w-5xl mx-auto px-4">
-        <h3 className="font-bold text-2xl text-center mb-4 text-black">
+    <section className="bg-[#1F5673] py-16">
+      {title && (
+        <h3 className="text-2xl text-white text-center font-semibold mb-6">
           {title}
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {images.length > 0 ? (
-            images.map((src, i) => (
-              <div key={i} className="bg-white p-2 rounded shadow">
+      )}
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 align-items-center max-w-7xl mx-auto px-6">
+        {images.length ? (
+          images.map((img, i) => {
+            const url = img?.fields?.file?.url;
+            if (!url) return null;
+
+            return (
+              <div key={i} className="rounded shadow">
                 <img
-                  src={src}
-                  alt={`Gallery ${i}`}
-                  className="w-full h-36 object-cover rounded"
+                  src={`https:${url}`}
+                  alt={img?.fields?.title ?? ""}
+                  className="rounded"
                 />
               </div>
-            ))
-          ) : (
-            <p className="text-center col-span-full">No photos yet</p>
-          )}
-        </div>
+            );
+          })
+        ) : (
+          <p className="text-gray-500">No images available.</p>
+        )}
       </div>
     </section>
   );

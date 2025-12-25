@@ -1,48 +1,58 @@
-type ServicesSectionProps = {
+type PartnersSectionProps = {
   title: string;
   details?: string;
-  info: {
-    entryTitle?: string;
-    title?: string;
-    description?: string;
-    image?: string;
-  }[];
+  infos?: Info[];
 };
 
-export default function ServicesSection({
+type Info = {
+  fields: {
+    entryTitle?: string;
+    description?: string;
+    image?: {
+      fields: {
+        file: {
+          url: string;
+        };
+      };
+    };
+  };
+};
+
+export default function PartnersSection({
   title,
   details,
-  info,
-}: ServicesSectionProps) {
+  infos,
+}: PartnersSectionProps) {
   return (
-    <section className="bg-[#2c5874] py-12 text-center text-white">
-      <h2 className="text-3xl font-bold mb-6">{title}</h2>
+    <section className="bg-[#2f5673] py-20">
+      <h2 className="text-center text-4xl font-bold text-white mb-14">
+        {title}
+      </h2>
 
-      {details && (
-        <p className="max-w-2xl mx-auto mb-10 text-gray-200">{details}</p>
-      )}
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-6">
-        {info.map((service, index) => (
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {infos?.map((item, index) => (
           <div
             key={index}
-            className="bg-white text-gray-900 rounded-2xl shadow-lg p-6 transition-transform duration-200 hover:-translate-y-2"
+            className="bg-white rounded-2xl shadow-lg p-8 text-center transition-transform duration-300 hover:-translate-y-2"
           >
-            {service.image && (
+            {item.fields.image && (
               <img
-                src={service.image}
-                alt={service.title || ""}
-                className="w-16 h-16 mx-auto mb-4 object-contain"
+                src={item.fields.image.fields.file.url}
+                alt={item.fields.entryTitle || ""}
+                className="w-20 h-14 object-contain mx-auto mb-6"
               />
             )}
-            {service.entryTitle && (
-              <h3 className="text-lg font-semibold text-[#2c5874] mb-2">
-                {service.entryTitle}
+
+            {item.fields.entryTitle && (
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                {item.fields.entryTitle}
               </h3>
             )}
 
-            {service.description && (
-              <p className="text-sm text-gray-700">{service.description}</p>
+            {item.fields.description && (
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {item.fields.description}
+              </p>
             )}
           </div>
         ))}

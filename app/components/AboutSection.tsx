@@ -3,9 +3,14 @@ import { Calendar, CheckCircle, Users } from "lucide-react";
 type AboutSectionProps = {
   title?: string;
   details?: string;
-  infos?: Array<{ title: string; icon: string }>;
+  infos?: Info[];
 };
-
+type Info = {
+  fields: {
+    title: string;
+    icon: string;
+  };
+};
 export default function AboutSection({
   title,
   details,
@@ -26,15 +31,16 @@ export default function AboutSection({
         {details && <p className="md:text-xl mb-6">{details}</p>}
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 mt-10">
-          {(infos || []).map((info, index) => {
-            const IconComponent = iconMap[info.icon] || Calendar;
+          {infos.map((info, index) => {
+            const IconComponent = iconMap[info.fields.icon] || Calendar;
+
             return (
               <div
                 key={index}
                 className="flex flex-row items-center justify-center gap-3"
               >
                 <IconComponent className="w-6 h-6" />
-                <p className="font-semibold text-lg">{info.title}</p>
+                <p className="font-semibold text-lg">{info.fields.title}</p>
               </div>
             );
           })}
