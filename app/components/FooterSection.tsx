@@ -1,65 +1,64 @@
 export default function Footer() {
   return (
-    <footer className="bg-blue-900 text-white px-4 sm:px-16 py-6 sm:py-12">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 md:gap-0">
-        <div className="flex items-center gap-3 sm:gap-4">
+    <footer className="bg-blue-900 text-white px-4 sm:px-16 py-8 sm:py-12">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-10">
+        {/* Left: Logo + Brand */}
+        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
           <img
             src="/t-siam logo.png"
             alt="Company Logo"
-            className="w-10 h-10 sm:w-16 sm:h-16 rounded-full object-cover"
+            className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover"
           />
+
           <div>
-            <h2 className="text-lg sm:text-2xl md:text-4xl font-bold mb-1 sm:mb-2">
+            <h2 className="text-lg sm:text-2xl md:text-3xl font-bold mb-3">
               T-SIAM ARCH CO.LTD
             </h2>
 
-            <div className="flex items-center gap-2 text-xs sm:text-sm md:text-base">
-              <img
-                src="/facebook.png"
-                alt="Facebook"
-                className="w-4 h-4 sm:w-6 sm:h-6"
-              />
-              <a
-                href="https://www.facebook.com"
-                className="hover:text-gray-300"
-              >
-                Follow us on Facebook
-              </a>
-            </div>
+            <a
+              href="https://www.facebook.com"
+              className="inline-flex items-center gap-2 text-sm sm:text-base hover:text-gray-300"
+            >
+              <img src="/facebook.png" alt="Facebook" className="w-5 h-5" />
+              Follow us on Facebook
+            </a>
           </div>
         </div>
 
-        <div className="text-right mt-4 md:mt-0">
-          <h3 className="text-sm sm:text-lg md:text-xl font-bold mb-2 sm:mb-4 w-full">
+        {/* Right: Contact Info */}
+        <div className="text-center md:text-right">
+          <h3 className="text-base sm:text-lg md:text-xl font-bold mb-4">
             Contact Us
           </h3>
 
-          <p className="flex justify-end items-center gap-1 sm:gap-2 mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">
-            <span>+66 1234 5678</span>
-            <img
-              src="/telephone.png"
-              alt="Phone"
-              className="w-4 h-4 sm:w-5 sm:h-5 filter invert"
-            />
-          </p>
+          <div className="space-y-3">
+            <p className="flex items-center justify-center md:justify-end gap-3 text-sm sm:text-base">
+              <img
+                src="/telephone.png"
+                alt="Phone"
+                className="w-5 h-5 filter invert"
+              />
+              <span>+66 1234 5678</span>
+            </p>
 
-          <p className="flex justify-end items-center gap-1 sm:gap-2 mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">
-            <span>info@tsiamarch.com</span>
-            <img
-              src="/mail.png"
-              alt="Email"
-              className="w-4 h-4 sm:w-5 sm:h-5 filter invert"
-            />
-          </p>
+            <p className="flex items-center justify-center md:justify-end gap-3 text-sm sm:text-base">
+              <img
+                src="/mail.png"
+                alt="Email"
+                className="w-5 h-5 filter invert"
+              />
+              <span>info@tsiamarch.com</span>
+            </p>
 
-          <p className="flex justify-end items-center gap-1 sm:gap-2 text-xs sm:text-sm md:text-base">
-            <span>123 Main Street, Bangkok</span>
-            <img
-              src="/location.png"
-              alt="Location"
-              className="w-4 h-4 sm:w-5 sm:h-5 filter invert"
-            />
-          </p>
+            <p className="flex items-center justify-center md:justify-end gap-3 text-sm sm:text-base">
+              <img
+                src="/location.png"
+                alt="Location"
+                className="w-5 h-5 filter invert"
+              />
+              <span>123 Main Street, Bangkok</span>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

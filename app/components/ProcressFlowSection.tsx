@@ -31,7 +31,7 @@ export default function ProcressFlowSection({
   if (!infos.length) return null;
 
   return (
-    <section className="py-16 text-center bg-white text-black">
+    <section className="py-5 text-center bg-white text-black">
       {data?.title && <h2 className="text-3xl font-bold mb-4">{data.title}</h2>}
 
       {data?.details && (
@@ -76,10 +76,6 @@ export default function ProcressFlowSection({
           );
         })}
       </div>
-
-      <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-full transition">
-        Contact Us
-      </button>
     </section>
   );
 }

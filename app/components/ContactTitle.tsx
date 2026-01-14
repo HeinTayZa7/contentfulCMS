@@ -8,7 +8,7 @@ export default function ContactTitleSection({
   details,
 }: ContactTitleSectionProps) {
   return (
-    <section className="w-full mx-auto">
+    <section className="w-full mx-auto pt-24">
       <div className="w-full px-12 py-14">
         <h1 className="text-4xl text-black font-bold mb-4 text-center">
           {title}
